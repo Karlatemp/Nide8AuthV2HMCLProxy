@@ -17,14 +17,14 @@ public class Metadata {
     public static final byte[] MetaInf;
     public static final String VERSION;
     public static final String JAVA_VERSION = System.getProperty("java.version");
-    public static final String USER_AGENT = "Java/" + JAVA_VERSION;
+    public static final String USER_AGENT = System.getProperty("agent.override", "Java/" + JAVA_VERSION);
 
     static {
         String ver = System.getProperty("version.override");
         if (ver == null) ver = Metadata.class.getPackage().getImplementationVersion();
         if (ver == null) ver = "Direct Run - v{DEBUG}";
-        System.out.println("Ver: " + ver);
-        System.out.println("UserAgent: " + USER_AGENT);
+        // System.out.println("Ver: " + ver);
+        // System.out.println("UserAgent: " + USER_AGENT);
         VERSION = ver;
         JsonObject object = new JsonObject();
         object.add("Application-Author", new JsonPrimitive("Karlatemp"));

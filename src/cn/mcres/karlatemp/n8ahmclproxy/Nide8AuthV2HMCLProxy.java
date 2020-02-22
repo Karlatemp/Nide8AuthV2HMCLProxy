@@ -28,6 +28,10 @@ public class Nide8AuthV2HMCLProxy implements HttpHandler {
 
     public static void main(String[] args) throws IOException {
         debug = Boolean.getBoolean("debug");
+        System.out.println("Welcome to use Nide8 Auth v2 HMCL Proxy.");
+        System.out.println("\t> Version: " + Metadata.VERSION);
+        System.out.println("\t> Java Version: " + Metadata.JAVA_VERSION);
+        System.out.println("\t> Override User Agent: " + Metadata.USER_AGENT);
         HttpServer server = HttpServer.create();
         server.createContext("/", new Nide8AuthV2HMCLProxy());
         server.bind(new InetSocketAddress(Integer.getInteger("port", 4443)), 100);
