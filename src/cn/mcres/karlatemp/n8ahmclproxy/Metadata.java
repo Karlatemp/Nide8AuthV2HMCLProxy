@@ -22,6 +22,7 @@ public class Metadata {
     static {
         String ver = System.getProperty("version.override");
         if (ver == null) ver = Metadata.class.getPackage().getImplementationVersion();
+        if (ver == null) ver = "Direct Run - v{DEBUG}";
         System.out.println("Ver: " + ver);
         System.out.println("UserAgent: " + USER_AGENT);
         VERSION = ver;
